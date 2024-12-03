@@ -11,9 +11,6 @@ function makeUser(firstName, lastName, age){
 }
 
 const users = [];
-users.push(makeUser('Ali', 'Bombali', 25));
-users.push(makeUser('Frans', 'Piet', 15));
-users.push(makeUser('Bobo', 'Lang', 35));
 
 function showAllUsers(){
     const selectList = document.querySelector('.all-users');
@@ -27,8 +24,7 @@ function showAllUsers(){
 }
 showAllUsers();
 
-const selectButton = document.querySelector('.add-users');
-selectButton.addEventListener('click', function(){
+function userInputPrompt(){
     const userFirstName = prompt('Yo rare, wat is je voornaam?');
     const userLastName = prompt('Yo rare, wat is je achternaam?');
     const userAge = prompt('Yo rare, wat is je leeftijd?');
@@ -39,4 +35,21 @@ selectButton.addEventListener('click', function(){
     } else {
         alert('ongeldige invoer');
     }      
-});
+}
+
+
+function userInputForms(){
+    const selectInputFirstName = document.querySelector('.first-name');
+    const selectInputLastName = document.querySelector('.last-name');
+    const selectInputAge = document.querySelector('.age');
+
+    if (selectInputFirstName.value && selectInputLastName.value && selectInputAge.value) {
+        users.push(makeUser(selectInputFirstName.value, selectInputLastName.value, selectInputAge.value));   
+        showAllUsers();
+    } else {
+        alert('ongeldige invoer');
+    }      
+}
+
+const selectButton = document.querySelector('.submit-button');
+selectButton.addEventListener('click', userInputForms);
