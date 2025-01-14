@@ -1,0 +1,28 @@
+const user = {
+    name: 'Hans',
+    age: 15
+};
+
+// console.log('gebruiker OBJECT', user);
+
+// console.log(user.name);
+
+// const userToString = JSON.stringify(user);
+// console.log('gebruiker JSON objesct', userToString);
+// console.log(userToString.name)
+
+localStorage.setItem('user', JSON.stringify(user));
+console.log('gegevens opgeslagen');
+
+const getUser = localStorage.getItem('user');
+console.log(getUser);
+
+const parseUser = JSON.parse(getUser);
+console.log(parseUser);
+
+console.log(parseUser.name)
+
+
+
+
+
